@@ -16,7 +16,7 @@ const ServiceDetails = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col px-6 pt-6 pb-10">
       
-      {/* --- Header (Back & Logo) --- */}
+      {/* Header (Back & Logo) */}
       <div className="flex items-center justify-between mb-6 relative">
         <button onClick={() => navigate(-1)} className="p-2 -ml-2 text-dark">
             <ArrowLeft size={24} />
@@ -24,25 +24,25 @@ const ServiceDetails = () => {
         <h1 className="text-xl font-bold text-dark font-sans absolute left-1/2 transform -translate-x-1/2">MeTime</h1>
       </div>
 
-      {/* --- Stepper (Step 2 Active) --- */}
+      {/* Stepper (Step 2 Active) */}
       <div className="flex items-center justify-center gap-2 mb-8">
         <div className="w-1.5 h-1.5 bg-gray-200 rounded-full"></div>
-        <div className="w-8 h-1.5 bg-primary rounded-full"></div> {/* Active Step */}
+        <div className="w-8 h-1.5 bg-primary rounded-full"></div>
         <div className="w-1.5 h-1.5 bg-gray-200 rounded-full"></div>
         <div className="w-1.5 h-1.5 bg-gray-200 rounded-full"></div>
       </div>
 
-      {/* --- Title --- */}
+      {/* Title */}
       <h2 className="text-2xl font-medium text-dark text-center mb-8 px-4">
         Now, choose one that fit your needs:
       </h2>
 
-      {/* --- List --- */}
+      {/* List */}
       <div className="flex flex-col gap-4">
         {subServices.map((item) => (
           <div 
             key={item.id}
-            onClick={() => navigate('/professional')} // Next page par bhejo
+            onClick={() => navigate('/professional')}
             className="flex items-center gap-4 p-2 rounded-xl hover:bg-surface cursor-pointer transition-colors group"
           >
             {/* Image */}

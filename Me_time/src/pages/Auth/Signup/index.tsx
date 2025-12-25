@@ -1,8 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, EyeOff } from 'lucide-react';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const nextstep = location.state?.aageJanaHai || '/home';
 
   return (
     <div className="min-h-screen bg-white flex flex-col px-6 pt-6 pb-6">
@@ -15,13 +17,10 @@ const SignUpPage = () => {
         <h1 className="text-xl font-bold text-dark font-sans absolute left-1/2 transform -translate-x-1/2">MeTime</h1>
       </div>
 
-      {/* Title */}
       <h2 className="text-3xl font-bold text-dark mb-6">Sign up</h2>
 
-      {/* Form */}
       <div className="space-y-5">
         
-        {/* Full Name */}
         <div>
             <label className="text-grey text-sm mb-1 block">Full Name</label>
             <input type="text" placeholder="Enter your full name" className="w-full p-4 rounded-xl border border-gray-200 text-dark focus:border-primary focus:outline-none" />
@@ -56,14 +55,13 @@ const SignUpPage = () => {
       {/* Register Button */}
       <div className="mt-8">
         <button 
-            onClick={() => navigate('/home')}
+            onClick={() => navigate('/verification', { state: { aageJanaHai: nextstep } })}
             className="w-full bg-primary hover:bg-[#FF7A70] text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-red-100 transition-transform active:scale-95"
         >
             Register
         </button>
       </div>
 
-      {/* Login Link */}
       <div className="mt-6 text-center">
         <span className="text-grey text-sm">Already have an account? </span>
         <button onClick={() => navigate('/login')} className="text-primary font-bold text-sm hover:underline">

@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         // Screenshots ke hisab se colors:
-        primary: "#FF8E85",      // Dark Peach/Salmon (Buttons ke liye)
+        primary: "#FDCCC5",      // Dark Peach/Salmon (Buttons ke liye)
+        secondary: "#FDE5E1",
         primaryLight: "#FFD8D0", // Light Peach (Cards background ke liye)
         background: "#FFFFFF",   // White Background
         surface: "#F9FAFB",      // Light Grey (Inputs/Sections ke liye)

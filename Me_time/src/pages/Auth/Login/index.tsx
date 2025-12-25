@@ -48,7 +48,7 @@ const LoginPage = () => {
       {/* Continue Button */}
       <div className="mt-8">
         <button 
-            onClick={() => navigate('/verify')} // Verify page par bhejege
+            onClick={() => navigate('/verification')} 
             className="w-full bg-primary hover:bg-[#FF7A70] text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-red-100 transition-transform active:scale-95"
         >
             Continue

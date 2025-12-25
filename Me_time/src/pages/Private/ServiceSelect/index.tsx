@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginPopup from '../components/LoginPopup';
+import LoginPopup from '../../../components/Common/LoginPopup';
 
 const ServiceSelect = () => {
   const navigate = useNavigate();
-  
-  // Popup State
   const [showModal, setShowModal] = useState(false);
 
-  // Services Data
   const services = [
     { 
       id: 1, 
@@ -32,35 +29,18 @@ const ServiceSelect = () => {
     },
   ];
 
-  // --- HANDLERS (Yahan changes kiye hain) ---
+  const handleServiceClick = () => {
+    navigate('/service-details'); 
+  };
 
-  // 1. Service Click Handler: Seedha agle page par le jayega
-  const handleServiceClick = () => navigate('/service-details');
-  const handleSkip = () => setShowModal(true);
-
-  // 2. Skip Handler: Sirf ye Popup kholega
-  // const handleSkip = () => {
-  //   setShowModal(true);
-  // };
-
-  // 3. Login/Signup Handlers (Popup ke andar ke buttons)
-  // const handleLogin = () => {
-  //   setShowModal(false);
-  //   navigate('/login');
-  // };
-
-  // const handleCreateAccount = () => {
-  //   setShowModal(false);
-  //   navigate('/signup');
-  // };
+  const handleSkip = () => {
+    setShowModal(true);
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center pt-6 px-6 relative">
-      
-      {/* --- Header --- */}
       <h1 className="text-xl font-bold text-dark font-sans tracking-wide mb-6">MeTime</h1>
 
-      {/* --- Progress Bar --- */}
       <div className="flex items-center gap-2 mb-10">
         <div className="w-8 h-1.5 bg-primary rounded-full"></div>
         <div className="w-1.5 h-1.5 bg-gray-200 rounded-full"></div>
@@ -68,45 +48,26 @@ const ServiceSelect = () => {
         <div className="w-1.5 h-1.5 bg-gray-200 rounded-full"></div>
       </div>
 
-      {/* --- Title --- */}
       <div className="w-full max-w-md text-center mb-8">
-        <h2 className="text-2xl font-medium text-dark">
-          Please, choose a service:
-        </h2>
+        <h2 className="text-2xl font-medium text-dark">Please, choose a service:</h2>
       </div>
 
-      {/* --- Services Grid --- */}
       <div className="grid grid-cols-2 gap-4 w-full max-w-md">
         {services.map((service) => (
-          <div 
-            key={service.id}
-            onClick={handleServiceClick} // <-- Change: Ab ye seedha details page par jayega
-            className="group cursor-pointer flex flex-col items-center gap-3"
-          >
+          <div key={service.id} onClick={handleServiceClick} className="group cursor-pointer flex flex-col items-center gap-3">
             <div className="w-full aspect-square rounded-3xl overflow-hidden shadow-sm border border-transparent hover:border-primary transition-all">
-              <img 
-                src={service.image} 
-                alt={service.name} 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
+              <img src={service.image} alt={service.name} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
             </div>
             <span className="text-dark font-medium">{service.name}</span>
           </div>
         ))}
       </div>
 
-      {/* --- Skip Button --- */}
       <div className="mt-10 pb-10">
-        <button onClick={handleSkip} className="text-primary font-medium hover:text-dark">
-            Skip
-        </button>
+        <button onClick={handleSkip} className="text-primary font-medium hover:text-[#ff9f98] transition-colors">Skip</button>
       </div>
 
-      <LoginPopup 
-        isOpen={showModal} 
-        onClose={() => setShowModal(false)} 
-      />
-
+      <LoginPopup isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>
   );
 };

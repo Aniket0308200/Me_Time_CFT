@@ -15,10 +15,15 @@ body {
 }
 
 /* Scrollbar Hide Karne ke liye (Horizontal scroll ke waqt kaam aayega) */
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+@layer utilities {
+  /* Chrome, Safari aur Opera ke liye scrollbar chupao */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Firefox, IE aur Edge ke liye scrollbar chupao */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 }

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
-const VerificationPage = () => {
+const Verification = () => {
   const navigate = useNavigate();
 
   return (
@@ -39,13 +39,10 @@ const VerificationPage = () => {
         <span className="text-dark font-medium text-sm">00:20</span>
       </div>
 
-      {/* Keyboard ko ignore kar rahe hain kyunki mobile me native keyboard khulega */}
-      
-      {/* Verify Button (Hidden trick: Keyboard ke upar usually button hota hai ya auto submit) */}
        <div className="mt-10">
         <button 
-            onClick={() => navigate('/home')} // Success ke baad Home
-            className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-red-100"
+            onClick={() => navigate('/home')}
+            className="w-full bg-primary hover:bg-[#FF7A70] text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-red-100"
         >
             Confirm
         </button>
@@ -55,4 +52,4 @@ const VerificationPage = () => {
   );
 };
 
-export default VerificationPage;
+export default Verification;
